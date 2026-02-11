@@ -1,36 +1,49 @@
-📌 **Exercise Statement**
+## 📌 Exercise Statement
 
-This module focuses on the use of annotations in Java as a mechanism for adding metadata to source code. The exercises cover standard Java annotations, custom annotations, and runtime inspection through reflection, with emphasis on their impact on behavior, readability, and extensibility.
+This module focuses on **Java annotations**, a powerful feature that allows adding metadata to your code to influence behavior or enrich it with additional information. Each exercise has been completed and documented following the **Conventional Commits** standard.
 
-**Level 1 — Basic Annotations**
+- Exercises cover both **built-in annotations** and **custom annotations**.
+- Java Reflection is used to read annotations at runtime and act accordingly.
+- This module improves code **readability, maintainability, and extensibility**, and prepares for frameworks like Spring or JPA.
 
-This level introduces built-in Java annotations within a class hierarchy, reinforcing inheritance and polymorphism while improving code clarity and maintenance.
+---
 
-**Level 1 — Exercise 1: Override**
+### Level 1 — Exercise 1: @Override
 
-A class hierarchy is created with `Worker`, `OnlineWorker`, and `OnsiteWorker`.
+- A class hierarchy was implemented with three classes: `Worker`, `OnlineWorker`, and `OnSiteWorker`.
+- The base class `Worker` includes attributes `name`, `surname`, `hourlySalary` and a method `calculateSalary(int hours)`.
+- The subclasses **override** `calculateSalary()` using the `@Override` annotation:
+  - `OnSiteWorker` calculates salary as `hours * hourlySalary + gasCost` (static attribute).
+  - `TreballadorOnline` calculates salary as `hours * hourlySalary * internetFlatRate` (constant of the class).
+- The `main()` method demonstrates the behavior of overridden methods and the use of `@Override`.
 
-The `Worker` class defines the attributes `name`, `surname`, and `hourlyRate`, along with a `calculateSalary()` method that receives the number of worked hours. The child classes override this method using the `@Override` annotation.
+---
 
-From the `main()` method, the overridden methods are invoked to demonstrate polymorphic behavior.
+### Level 1 — Exercise 2: @Deprecated
 
-For onsite workers, salary calculation multiplies worked hours by the hourly rate and adds a static attribute named `fuel`.  
-For online workers, salary calculation multiplies worked hours by the hourly rate and adds a constant flat Internet fee defined in `OnlineWorker`.
+- Some methods in the subclasses were marked as **deprecated** using the `@Deprecated` annotation.
+- An external class calls these deprecated methods while using the `@SuppressWarnings` annotation to ignore warnings.
+- This exercise illustrates when and why to mark methods as obsolete, and how annotations improve code maintainability and developer awareness.
 
-**Level 1 — Exercise 2: Deprecated**
+---
 
-Deprecated methods are added to the child classes and marked with the `@Deprecated` annotation.
+## ✨ Features
 
-These methods are invoked from an external class, and compiler warnings related to deprecation are suppressed using the appropriate annotation.
+- Practical use of **built-in Java annotations**: `@Override`, `@Deprecated`, `@SuppressWarnings`
+- Demonstration of **inheritance and polymorphism** in combination with annotations
+- Understanding how annotations affect **code execution, readability, and maintainability**
+- Experience with **declaring constants and static attributes** for class-specific behavior
 
-<br>
+---
 
-✨ **Features**
+## 🛠 Technologies
 
-Use of standard Java annotations, method overriding, polymorphism, static and constant members, deprecated API marking, and warning suppression.
+- **Backend**: Java 21 (LTS)
 
-<br>
+---
 
-🛠 **Technologies**
+## 🚀 Installation & Execution
 
-Backend: Java 25.
+1. Clone the repository by running `git clone <repository-url>` and navigate to the project folder.
+2. Compile all Java source files using `javac -d out src/**/*.java`. This will create `.class` files in the `out` directory.
+3. Run the program with `java -cp out Main`. This executes the main program demonstrating Java annotations and overridden/deprecated methods.
